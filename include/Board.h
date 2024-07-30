@@ -2,7 +2,7 @@
 
 #include "Engine.h"
 #include "Player.h"
-
+#include "Spawner.h"
 class Board
 {
 public:
@@ -17,4 +17,5 @@ public:
 private:
 	SDL_Texture* m_background;
 	Player m_player;
+	Spawner m_spawner;
 };
