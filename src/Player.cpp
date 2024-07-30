@@ -22,7 +22,7 @@ void Player::init()
 
 void Player::update()
 {
-	movePlayer(30, 2);
+	movePlayer();
 }
 
 void Player::draw()
@@ -35,18 +35,21 @@ void Player::destroy()
 	SDL_DestroyTexture(m_player.texture);
 }
 
-void Player::movePlayer(float degrees, float velocity)
+
+void Player::movePlayer()
 {
-	float rad = degrees * (M_PI / 180);
-	float y_offset = sin(rad) * (-1);
-	float x_offset = cos(rad);
+	int velocity = 10;
 
-	cout << y_offset << "" << x_offset << endl;
+	//float rad = degrees * (M_PI / 180);
+	//float y_offset = sin(rad) * (-1);
+	//float x_offset = cos(rad);
 
-	coor.y += y_offset * velocity;
-	coor.x += x_offset * velocity;
+
+	coor.y += (InputManager::m_joystickPosition.y / 32767.0) * velocity;
+	coor.x += (InputManager::m_joystickPosition.x / 32767.0) * velocity;
 
 	m_player.rect.y = coor.y;
 	m_player.rect.x = coor.x;
+	
 	
 }

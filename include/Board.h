@@ -2,6 +2,7 @@
 
 #include "Engine.h"
 #include "Player.h"
+#include "InputManager.h"
 
 class Board
 {

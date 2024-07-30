@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Engine.h"
+#include <cmath>
 
 class Player
 {
@@ -12,7 +13,7 @@ public:
 	void update();
 	void draw();
 	void destroy();
-	void movePlayer(float degrees, float velocity);
+	void movePlayer();
 
 private:
 	Drawable m_player;

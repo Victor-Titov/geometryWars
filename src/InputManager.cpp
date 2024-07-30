@@ -1,8 +1,11 @@
 #include "InputManager.h"
 
+#define JOYSTICK_DEAD_ZONE 7000
+
 bool InputManager::m_mouseIsPressed = bool();
 
 int2 InputManager::m_mouseCoor = int2();
+int2 InputManager::m_joystickPosition = int2();
 
 const Uint8* InputManager::m_keyboardState = nullptr;
 
@@ -16,6 +19,11 @@ InputManager::~InputManager()
 
 }
 
+void InputManager::init()
+{
+	joysticktest = SDL_JoystickOpen(0);
+}
+
 void InputManager::setMouseMultiply(float2 multyplier)
 {
 	m_mouseMultiply.x = multyplier.x;
@@ -25,7 +33,6 @@ void InputManager::setMouseMultiply(float2 multyplier)
 void InputManager::handleInput()
 {
 	m_mouseIsPressed = false;
-
 	//Events for the mouse
 	while (SDL_PollEvent(&m_event))
 	{
@@ -43,6 +50,33 @@ void InputManager::handleInput()
 			{
 				m_mouseIsPressed = true;
 			}
+			break;
+
+		case SDL_JOYAXISMOTION:
+			if (m_event.jaxis.axis == 0)
+			{
+				if ((m_event.jaxis.value < -JOYSTICK_DEAD_ZONE) || (m_event.jaxis.value > JOYSTICK_DEAD_ZONE))
+				{
+					m_joystickPosition.x = m_event.jaxis.value;
+				}
+				else
+				{
+					m_joystickPosition.x = 0;
+				}
+			}
+			if (m_event.jaxis.axis == 1)
+			{
+				if ((m_event.jaxis.value < -JOYSTICK_DEAD_ZONE) || (m_event.jaxis.value > JOYSTICK_DEAD_ZONE))
+				{
+					m_joystickPosition.y = m_event.jaxis.value;
+				}
+				else {
+					m_joystickPosition.y = 0;
+
+				}
+			}
+			
+			
 			break;
 		}
 	}
@@ -73,3 +107,4 @@ bool isKeyPressed(SDL_Scancode code)
 {
 	return InputManager::m_keyboardState[code];
 }
+
