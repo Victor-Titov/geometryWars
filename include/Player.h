@@ -17,7 +17,7 @@ public:
 	void draw();
 
 private:
-	void moveEntity();
+	float2 movePlayer();
 	void shoot();
 	Bullet m_bullets[NUMBER_OF_BULLETS];
 	Drawable m_bulletDrawable;

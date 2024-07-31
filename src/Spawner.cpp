@@ -47,3 +47,5 @@ void Spawner::destroy()
 {
 	SDL_DestroyTexture(m_enemy.texture);
 }
+
+
