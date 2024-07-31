@@ -1,9 +1,58 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Board.cpp
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/Board.cpp')
+  
+  Bullet.cpp
+C:\Users\viti\source\repos\geometryWars\src\Bullet.cpp(8,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Bullet.cpp(9,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Bullet.cpp(19,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Bullet.cpp(28,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Bullet.cpp(29,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Entity.cpp
+C:\Users\viti\source\repos\geometryWars\src\Entity.cpp(31,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Entity.cpp(40,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Entity.cpp(41,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Game.cpp
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/Game.cpp')
+  
+  InputManager.cpp
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/InputManager.cpp')
+  
+C:\Users\viti\source\repos\geometryWars\src\InputManager.cpp(44,36): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\InputManager.cpp(45,36): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
   Player.cpp
-C:\Users\Diliana Vasileva\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(32,94): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(53,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(54,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(56,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(57,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  SDL-Template.vcxproj -> C:\Users\Diliana Vasileva\source\repos\geometryWars\run\SDL-Template.exe
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/Player.cpp')
+  
+C:\Users\viti\source\repos\geometryWars\src\Player.cpp(67,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Player.cpp(68,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Player.cpp(70,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Player.cpp(71,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Player.cpp(81,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Presenter.cpp
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/Presenter.cpp')
+  
+C:\Users\viti\source\repos\geometryWars\src\Presenter.cpp(77,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\viti\source\repos\geometryWars\src\Presenter.cpp(78,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  StateManager.cpp
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/StateManager.cpp')
+  
+  TitleScreen.cpp
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/TitleScreen.cpp')
+  
+  World.cpp
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/World.cpp')
+  
+  main.cpp
+C:\Users\viti\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file '../src/main.cpp')
+  
+  Generating Code...
+  SDL-Template.vcxproj -> C:\Users\viti\source\repos\geometryWars\run\SDL-Template.exe

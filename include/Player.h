@@ -2,8 +2,11 @@
 
 #include "Engine.h"
 #include <cmath>
-
-class Player
+#include "Bullet.h"
+#include "Entity.h"
+#define NUMBER_OF_BULLETS 200
+#define FFS 5 // frames needed to shoot once
+class Player : public Entity
 {
 public:
 	Player();
@@ -12,10 +15,12 @@ public:
 	void init();
 	void update();
 	void draw();
-	void destroy();
-	void movePlayer();
 
 private:
-	Drawable m_player;
-	float2 coor = {0, 0};
+	float2 movePlayer();
+	void shoot();
+	Bullet m_bullets[NUMBER_OF_BULLETS];
+	Drawable m_bulletDrawable;
+	int m_currentBullet;
+	int m_currFrames;
 };

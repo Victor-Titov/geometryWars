@@ -15,33 +15,47 @@ Player::~Player()
 
 void Player::init()
 {
-	m_player.texture = loadTexture("player2.bmp");
-	m_player.rect = { 800, 500, 100, 100};
+	m_drawable.texture = loadTexture("rocket_with_cat.bmp");
+	m_drawable.rect = { 800, 500, 100, 100};
 	coor = { 800, 500};
+	m_velocity = 2;
+	m_angle = 0;
+	m_bulletDrawable.texture = loadTexture("bullet.bmp");
+	m_bulletDrawable.rect.w = 50;
+	m_bulletDrawable.rect.h = 50;
+	m_currentBullet = 0;
+	m_currFrames = 0;
 }
 
 void Player::update()
 {
 	movePlayer();
+	for (int i = 0; i < NUMBER_OF_BULLETS; i++) {
+		m_bullets[i].update();
+	}
+
+	shoot();
+
 }
 
 void Player::draw()
 {
-	static float angle = 0;
-	if (InputManager::m_joystickPosition.x != 0 || InputManager::m_joystickPosition.y != 0) {
-		angle = atan2(InputManager::m_joystickPosition.y, InputManager::m_joystickPosition.x) * 180/M_PI;
+	if (InputManager::m_joystickPosition.x != 0 || InputManager::m_joystickPosition.y!=0) {
+		m_angle = atan2(InputManager::m_joystickPosition.y, InputManager::m_joystickPosition.x) * 180 / M_PI;
 		//cout << angle << endl;
 	}
-	drawObjectEx(m_player, angle);
+	//cout << angle << endl;
+	for (int i = 0; i < NUMBER_OF_BULLETS; i++) {
+		m_bullets[i].draw();
+	}
+	drawObjectEx(m_drawable, m_angle);
 }
 
-void Player::destroy()
-{
-	SDL_DestroyTexture(m_player.texture);
-}
 
 
-void Player::movePlayer()
+
+
+float2 Player::movePlayer()
 {
 	int velocity = 10;
 
@@ -53,8 +67,23 @@ void Player::movePlayer()
 	coor.y += (InputManager::m_joystickPosition.y / 32767.0) * velocity;
 	coor.x += (InputManager::m_joystickPosition.x / 32767.0) * velocity;
 
-	m_player.rect.y = coor.y;
-	m_player.rect.x = coor.x;
+	m_drawable.rect.y = coor.y;
+	m_drawable.rect.x = coor.x;
+	return coor;
 	
-	
+}
+
+void Player::shoot()
+{
+	if (m_currFrames >= FFS) {
+		m_bulletDrawable.rect.x = m_drawable.rect.x + m_drawable.rect.w / 2;
+		m_bulletDrawable.rect.y = m_drawable.rect.y + m_drawable.rect.h / 2;
+		m_bullets[m_currentBullet].init(m_bulletDrawable, 20, m_angle);
+		m_currentBullet++;
+		if (m_currentBullet >= NUMBER_OF_BULLETS) {
+			m_currentBullet = 0;
+		}
+		m_currFrames = 0;
+	}
+	m_currFrames++;
 }
