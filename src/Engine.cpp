@@ -3,6 +3,7 @@
 SDL_Texture* LoadTexture(string imgPath, SDL_Renderer* renderer)
 {
 	string tmpImg = IMG_FOLDER + imgPath;
+	//tmpImg = IMG_FOLDER + "No.bmp";
 
 	SDL_Surface* loadingSurface = SDL_LoadBMP(tmpImg.c_str());
 

@@ -1,4 +1,4 @@
 Enemy_texture: No.bmp
 Enemy_W/H: 100 50
-Enemy_velocity: 10
-Enemy_amount: 10
+Enemy_velocity: 5
+Enemy_amount: 4000

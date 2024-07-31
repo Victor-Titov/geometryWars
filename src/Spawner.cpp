@@ -22,10 +22,10 @@ void Spawner::init()
 	}
 }
 
-void Spawner::update()
+void Spawner::update(float2 playerPos)
 {
 	for (int i = 0; i < m_enemyAmount; i++) {
-		m_enemies[i].update();
+		m_enemies[i].update(playerPos);
 		/*cout << "\n m_enemies[" << i << "].w: " << m_enemies[i].getRect().x;
 		cout << "\n m_enemies[" << i << "].w: " << m_enemies[i].getRect().y;
 		cout << "\n m_enemies[" << i << "].w: " << m_enemies[i].getRect().w;

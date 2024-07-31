@@ -20,4 +20,5 @@ private:
 	SDL_Texture* m_background;
 	Player m_player;
 	Spawner m_spawner;
+	float2 m_playerCoords;
 };

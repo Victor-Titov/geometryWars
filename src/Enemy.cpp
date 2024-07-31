@@ -10,8 +10,9 @@ void Enemy::init(Drawable drawable, int velocity, double starting_angle)
 
 }
 
-void Enemy::update()
+void Enemy::update(float2 playerPos)
 {
+	m_angle = atan2(coor.y - playerPos.y, playerPos.x - coor.x) * 180 / M_PI;
 	moveEntity();
 }
 
