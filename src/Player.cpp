@@ -34,7 +34,10 @@ void Player::update()
 		m_bullets[i].update();
 	}
 
-	shoot();
+	if (InputManager::m_secondstickPosition.y != 0 || InputManager::m_secondstickPosition.x != 0) {
+		shoot();
+	}
+	
 
 }
 
@@ -78,7 +81,8 @@ void Player::shoot()
 	if (m_currFrames >= FFS) {
 		m_bulletDrawable.rect.x = m_drawable.rect.x + m_drawable.rect.w / 2;
 		m_bulletDrawable.rect.y = m_drawable.rect.y + m_drawable.rect.h / 2;
-		m_bullets[m_currentBullet].init(m_bulletDrawable, 20, m_angle);
+		m_pBulletsAngle = atan2(InputManager::m_secondstickPosition.y, InputManager::m_secondstickPosition.x) * 180 / M_PI;
+		m_bullets[m_currentBullet].init(m_bulletDrawable, 10, m_pBulletsAngle);
 		m_currentBullet++;
 		if (m_currentBullet >= NUMBER_OF_BULLETS) {
 			m_currentBullet = 0;

@@ -5,7 +5,7 @@
 #include "Bullet.h"
 #include "Entity.h"
 #define NUMBER_OF_BULLETS 200
-#define FFS 5 // frames needed to shoot once
+#define FFS 8 // frames needed to shoot once
 class Player : public Entity
 {
 public:
@@ -23,4 +23,5 @@ private:
 	Drawable m_bulletDrawable;
 	int m_currentBullet;
 	int m_currFrames;
+	double m_pBulletsAngle;
 };
