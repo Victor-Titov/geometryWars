@@ -1,9 +1,11 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Player.cpp
 C:\Users\Diliana Vasileva\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(70,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(71,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(73,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(74,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(85,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(34,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(55,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(78,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(79,59): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(81,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(82,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Diliana Vasileva\source\repos\geometryWars\src\Player.cpp(94,38): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   SDL-Template.vcxproj -> C:\Users\Diliana Vasileva\source\repos\geometryWars\run\SDL-Template.exe
