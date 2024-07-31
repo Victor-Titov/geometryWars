@@ -5,13 +5,13 @@ class Entity {
 public:
 	virtual void init();
 	virtual void update();
-	void draw();
-	void destroy();
+	virtual void draw();
+	virtual void destroy();
 	SDL_Rect getRect();
 protected:
 	int m_velocity;
 	double m_angle;
-	void moveEntity();
+	virtual void moveEntity();
 	Drawable m_drawable;
 	float2 coor;
 };

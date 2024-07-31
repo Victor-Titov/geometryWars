@@ -3,6 +3,8 @@
 #include "Engine.h"
 #include "Player.h"
 #include "Spawner.h"
+#include "InputManager.h"
+
 class Board
 {
 public:
