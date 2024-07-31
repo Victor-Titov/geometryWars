@@ -26,10 +26,10 @@ void Spawner::update(float2 playerPos)
 {
 	for (int i = 0; i < m_enemyAmount; i++) {
 		m_enemies[i].update(playerPos);
-		/*cout << "\n m_enemies[" << i << "].w: " << m_enemies[i].getRect().x;
-		cout << "\n m_enemies[" << i << "].w: " << m_enemies[i].getRect().y;
-		cout << "\n m_enemies[" << i << "].w: " << m_enemies[i].getRect().w;
-		cout << "\n m_enemies[" << i << "].w: " << m_enemies[i].getRect().h;*/
+		if (!m_enemies[i].isAlive()) {
+			setEnemy(i);
+		}
+
 		
 	}
 		//SDL_Delay(9999999);
@@ -46,6 +46,12 @@ void Spawner::draw()
 void Spawner::destroy()
 {
 	SDL_DestroyTexture(m_enemy.texture);
+}
+
+void Spawner::setEnemy(int index)
+{
+	m_enemy.rect.x = rand() % Presenter::m_SCREEN_WIDTH;
+	m_enemies[index].init(m_enemy, m_enemyVelocity, m_enemyAngle);
 }
 
 

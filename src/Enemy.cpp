@@ -7,7 +7,7 @@ void Enemy::init(Drawable drawable, int velocity, double starting_angle)
 	m_velocity = velocity;
 	m_angle = starting_angle;
 	coor = { (float)drawable.rect.x,(float) drawable.rect.y };
-
+	m_allive = true;
 }
 
 void Enemy::update(float2 playerPos)
@@ -18,6 +18,12 @@ void Enemy::update(float2 playerPos)
 
 void Enemy::reset()
 {
+	m_allive = false;
+}
+
+bool Enemy::isAlive()
+{
+	return m_allive;
 }
 
 

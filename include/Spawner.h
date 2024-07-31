@@ -13,4 +13,5 @@ private:
 	int m_enemyVelocity;
 	int m_enemyAngle;
 	vector<Enemy> m_enemies;
+	void setEnemy(int index);
 };
