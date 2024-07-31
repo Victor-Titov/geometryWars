@@ -15,7 +15,7 @@ Player::~Player()
 
 void Player::init()
 {
-	m_player.texture = loadTexture("rock.bmp");
+	m_player.texture = loadTexture("player2.bmp");
 	m_player.rect = { 800, 500, 100, 100};
 	coor = { 800, 500};
 }
@@ -27,7 +27,12 @@ void Player::update()
 
 void Player::draw()
 {
-	drawObjectEx(m_player, 40);
+	static float angle = 0;
+	if (InputManager::m_joystickPosition.x != 0 || InputManager::m_joystickPosition.y != 0) {
+		angle = atan2(InputManager::m_joystickPosition.y, InputManager::m_joystickPosition.x) * 180/M_PI;
+		//cout << angle << endl;
+	}
+	drawObjectEx(m_player, angle);
 }
 
 void Player::destroy()
