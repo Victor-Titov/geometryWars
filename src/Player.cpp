@@ -15,8 +15,8 @@ Player::~Player()
 
 void Player::init()
 {
-	m_drawable.texture = loadTexture("rocket_with_cat.bmp");
-	m_drawable.rect = { 800, 500, 100, 100};
+	m_drawable.texture = loadTexture("left_view.bmp");
+	m_drawable.rect = { 800, 500, 200, 200};
 	coor = { 800, 500};
 	m_velocity = 2;
 	m_angle = 0;
