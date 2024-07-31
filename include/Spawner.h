@@ -4,7 +4,7 @@
 class Spawner {
 public:
 	void init();
-	void update();
+	void update(float2 playerPos);
 	void draw();
 	void destroy();
 private:

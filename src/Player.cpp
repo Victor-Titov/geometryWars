@@ -30,8 +30,12 @@ void Player::init()
 void Player::update()
 {
 	movePlayer();
-	for (int i = 0; i < NUMBER_OF_BULLETS; i++) {
+	SDL_Rect screenRect = { 0, 0, Presenter::m_SCREEN_WIDTH, Presenter::m_SCREEN_HEIGHT };
+	for (int i = 0; i <m_bullets.size(); i++) {
 		m_bullets[i].update();
+		if (!collRectRect(screenRect, m_bullets[i].getRect())) {
+			m_bullets.erase(m_bullets.begin() + i);
+		}
 	}
 
 	if (InputManager::m_secondstickPosition.y != 0 || InputManager::m_secondstickPosition.x != 0) {
@@ -48,17 +52,21 @@ void Player::draw()
 		//cout << angle << endl;
 	}
 	//cout << angle << endl;
-	for (int i = 0; i < NUMBER_OF_BULLETS; i++) {
+	for (int i = 0; i < m_bullets.size(); i++) {
 		m_bullets[i].draw();
 	}
 	drawObjectEx(m_drawable, m_angle);
 }
 
+float2 Player::getCoords()
+{
+	return coor;
+}
 
 
 
 
-float2 Player::movePlayer()
+void Player::movePlayer()
 {
 	int velocity = 10;
 
@@ -72,21 +80,19 @@ float2 Player::movePlayer()
 
 	m_drawable.rect.y = coor.y;
 	m_drawable.rect.x = coor.x;
-	return coor;
+	
 	
 }
 
 void Player::shoot()
 {
 	if (m_currFrames >= FFS) {
+		Bullet _Bullet;
 		m_bulletDrawable.rect.x = m_drawable.rect.x + m_drawable.rect.w / 2;
 		m_bulletDrawable.rect.y = m_drawable.rect.y + m_drawable.rect.h / 2;
-		m_pBulletsAngle = atan2(InputManager::m_secondstickPosition.y, InputManager::m_secondstickPosition.x) * 180 / M_PI;
-		m_bullets[m_currentBullet].init(m_bulletDrawable, 10, m_pBulletsAngle);
-		m_currentBullet++;
-		if (m_currentBullet >= NUMBER_OF_BULLETS) {
-			m_currentBullet = 0;
-		}
+		_Bullet.init(m_bulletDrawable, 20, m_angle);
+		m_bullets.push_back(_Bullet);
+		
 		m_currFrames = 0;
 	}
 	m_currFrames++;

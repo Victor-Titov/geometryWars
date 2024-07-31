@@ -5,7 +5,7 @@ class Enemy : public Entity
 {
 public:
 	void init(Drawable drawable, int velocity, double starting_angle);
-	void update();
+	void update(float2 playerPos);
 	void reset();
 	
 private:
