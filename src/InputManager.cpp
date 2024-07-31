@@ -6,6 +6,7 @@ bool InputManager::m_mouseIsPressed = bool();
 
 int2 InputManager::m_mouseCoor = int2();
 int2 InputManager::m_joystickPosition = int2();
+int2 InputManager::m_secondstickPosition = int2();
 
 const Uint8* InputManager::m_keyboardState = nullptr;
 
@@ -58,6 +59,7 @@ void InputManager::handleInput()
 				if ((m_event.jaxis.value < -JOYSTICK_DEAD_ZONE) || (m_event.jaxis.value > JOYSTICK_DEAD_ZONE))
 				{
 					m_joystickPosition.x = m_event.jaxis.value;
+
 				}
 				else
 				{
@@ -73,6 +75,28 @@ void InputManager::handleInput()
 				else {
 					m_joystickPosition.y = 0;
 
+				}
+			}
+			if (m_event.jaxis.axis == 2)
+			{
+				if ((m_event.jaxis.value < -JOYSTICK_DEAD_ZONE) || (m_event.jaxis.value > JOYSTICK_DEAD_ZONE))
+				{
+					m_secondstickPosition.x = m_event.jaxis.value;
+				}
+				else {
+					m_secondstickPosition.x = 0;
+
+				}
+			}
+
+			if (m_event.jaxis.axis == 3)
+			{
+				if ((m_event.jaxis.value < -JOYSTICK_DEAD_ZONE) || (m_event.jaxis.value > JOYSTICK_DEAD_ZONE))
+				{
+					m_secondstickPosition.y = m_event.jaxis.value;
+				}
+				else {
+					m_secondstickPosition.y = 0;
 				}
 			}
 			

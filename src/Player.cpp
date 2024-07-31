@@ -38,7 +38,10 @@ void Player::update()
 		}
 	}
 
-	shoot();
+	if (InputManager::m_secondstickPosition.y != 0 || InputManager::m_secondstickPosition.x != 0) {
+		shoot();
+	}
+	
 
 }
 

@@ -23,4 +23,5 @@ private:
 	Drawable m_bulletDrawable;
 	int m_currentBullet;
 	int m_currFrames;
+	double m_pBulletsAngle;
 };
