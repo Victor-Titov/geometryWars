@@ -15,8 +15,8 @@ Player::~Player()
 
 void Player::init()
 {
-	m_drawable.texture = loadTexture("rocket_with_cat.bmp");
-	m_drawable.rect = { 800, 500, 100, 100};
+	m_drawable.texture = loadTexture("left_view.bmp");
+	m_drawable.rect = { 800, 500, 300, 300};
 	coor = { 800, 500};
 	m_velocity = 2;
 	m_angle = 0;
@@ -88,9 +88,10 @@ void Player::shoot()
 {
 	if (m_currFrames >= FFS) {
 		Bullet _Bullet;
+		m_pBulletsAngle = atan2(InputManager::m_secondstickPosition.y, InputManager::m_secondstickPosition.x) * 180/M_PI;
 		m_bulletDrawable.rect.x = m_drawable.rect.x + m_drawable.rect.w / 2;
 		m_bulletDrawable.rect.y = m_drawable.rect.y + m_drawable.rect.h / 2;
-		_Bullet.init(m_bulletDrawable, 20, m_angle);
+		_Bullet.init(m_bulletDrawable, 20, m_pBulletsAngle);
 		m_bullets.push_back(_Bullet);
 		
 		m_currFrames = 0;
