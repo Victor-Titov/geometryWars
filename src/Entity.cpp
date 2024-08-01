@@ -21,6 +21,16 @@ void Entity::destroy()
 	SDL_DestroyTexture(m_drawable.texture);
 }
 
+int Entity::get_health()
+{
+	return m_health;
+}
+
+int Entity::get_maxHealth()
+{
+	return m_maxHealth;
+}
+
 SDL_Rect Entity::getRect()
 {
 	return m_drawable.rect;

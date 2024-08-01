@@ -4,6 +4,7 @@
 #include <cmath>
 #include "Bullet.h"
 #include "Entity.h"
+#include "BarManager.h"
 
 #define FFS 5 // frames needed to shoot once
 class Player : public Entity
@@ -25,4 +26,5 @@ private:
 	int m_currFrames;
 	double m_pBulletsAngle;
 	void checkCollisions();
+	Bar m_healthBar;
 };
