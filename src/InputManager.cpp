@@ -102,6 +102,7 @@ void InputManager::handleInput()
 			
 			
 			break;
+
 		}
 	}
 	m_keyboardState = SDL_GetKeyboardState(NULL);

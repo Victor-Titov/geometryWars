@@ -25,6 +25,9 @@ void Player::init()
 	m_bulletDrawable.rect.h = 50;
 	m_currentBullet = 0;
 	m_currFrames = 0;
+	m_maxHealth = 100;
+	m_health = m_maxHealth;
+	m_healthBar.init("health_bar.txt");
 }
 
 void Player::update()
@@ -42,7 +45,7 @@ void Player::update()
 		shoot();
 	}
 	
-
+	m_healthBar.setBar(m_health, m_maxHealth);
 }
 
 void Player::draw()
@@ -56,6 +59,7 @@ void Player::draw()
 		m_bullets[i].draw();
 	}
 	drawObjectEx(m_drawable, m_angle);
+	m_healthBar.draw();
 }
 
 float2 Player::getCoords()

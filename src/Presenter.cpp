@@ -18,7 +18,7 @@ void Presenter::init()
 	m_mainWindow = SDL_CreateWindow("SDL_Template",
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_SCREEN_WIDTH, m_SCREEN_HEIGHT, 0);
 
-	m_mainRenderer = SDL_CreateRenderer(m_mainWindow, -1, SDL_RENDERER_PRESENTVSYNC);
+	m_mainRenderer = SDL_CreateRenderer(m_mainWindow, -1, SDL_RENDERER_ACCELERATED);
 
 	improveRenderer();
 }
@@ -85,7 +85,7 @@ void Presenter::improveRenderer()
 	world.m_inputManager.setMouseMultiply(mouseMultiply);
 
 	SDL_RenderSetLogicalSize(m_mainRenderer, m_SCREEN_WIDTH, m_SCREEN_HEIGHT);
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
 }
 
 SDL_Texture* loadTexture(string path)

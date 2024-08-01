@@ -1,0 +1,4 @@
+img_path_bar_1: black_bar.bmp
+rect: 26 77 392 43
+img_path_bar_2: health_bar.bmp
+rect: 26 77 392 43
