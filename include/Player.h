@@ -16,6 +16,7 @@ public:
 	void init();
 	void update();
 	void draw();
+	void destroy();
 	float2 getCoords();
 private:
 	void movePlayer();

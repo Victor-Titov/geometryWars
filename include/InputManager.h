@@ -13,6 +13,7 @@ public:
 	static int2 m_mouseCoor;
 	static int2 m_joystickPosition; 
 	static int2 m_secondstickPosition;
+	static int m_faceNum;
 	static const Uint8* m_keyboardState;
 
 	void init();

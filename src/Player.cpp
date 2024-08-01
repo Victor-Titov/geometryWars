@@ -15,7 +15,11 @@ Player::~Player()
 
 void Player::init()
 {
-	m_drawable.texture = loadTexture("left_view.bmp");
+	m_faces[0] = loadTexture("front_view.bmp");
+	m_faces[1] = loadTexture("back_view.bmp");
+	m_faces[2] = loadTexture("left_view.bmp");
+	m_faces[3] = loadTexture("right_view.bmp");
+	m_drawable.texture = loadTexture("front_view.bmp");
 	m_drawable.rect = { 800, 500, 300, 300};
 	coor = { 800, 500};
 	m_velocity = 2;
@@ -58,8 +62,17 @@ void Player::draw()
 	for (int i = 0; i < m_bullets.size(); i++) {
 		m_bullets[i].draw();
 	}
+	m_drawable.texture = m_faces[InputManager::m_faceNum];
 	drawObjectEx(m_drawable, m_angle);
 	m_healthBar.draw();
+}
+
+void Player::destroy()
+{
+	for (int i = 0; i < 4; i++) {
+		SDL_DestroyTexture(m_faces[i]);
+	}
+	SDL_DestroyTexture(m_drawable.texture);
 }
 
 float2 Player::getCoords()
