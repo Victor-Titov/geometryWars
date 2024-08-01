@@ -36,6 +36,21 @@ SDL_Rect Entity::getRect()
 	return m_drawable.rect;
 }
 
+int Entity::getRadius()
+{
+	return m_radius;
+}
+
+float2 Entity::getCoords()
+{
+	return coor;
+}
+
+float2 Entity::getCeneterCoords()
+{
+	return m_centerCoords;
+}
+
 void Entity::moveEntity()
 {
 	float rad = m_angle * (M_PI / 180);
@@ -49,4 +64,6 @@ void Entity::moveEntity()
 
 	m_drawable.rect.y = coor.y;
 	m_drawable.rect.x = coor.x;
+	m_centerCoords.x = coor.x + m_drawable.rect.w / 2;
+	m_centerCoords.y = coor.y + m_drawable.rect.h / 2;
 }

@@ -10,8 +10,12 @@ public:
 	int get_health();
 	int get_maxHealth();
 	SDL_Rect getRect();
+	int getRadius();
+	float2 getCoords();
+	float2 getCeneterCoords();
 protected:
 	int m_velocity;
+	int m_radius;
 	int m_health;
 	int m_maxHealth;
 	double m_angle;
@@ -19,4 +23,5 @@ protected:
 	Drawable m_drawable;
 	float2 coor;
 	SDL_Texture* m_faces[4];
+	float2 m_centerCoords;
 };

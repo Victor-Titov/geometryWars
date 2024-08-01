@@ -6,7 +6,7 @@
 #include "Entity.h"
 #include "BarManager.h"
 
-#define FFS 0 // frames needed to shoot once
+#define FFS 5 // frames needed to shoot once
 class Player : public Entity
 {
 public:
@@ -26,5 +26,6 @@ private:
 	int m_currentBullet;
 	int m_currFrames;
 	double m_pBulletsAngle;
+	void checkCollisions();
 	Bar m_healthBar;
 };

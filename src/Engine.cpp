@@ -48,3 +48,18 @@ bool collRectRect(SDL_Rect rect1, SDL_Rect rect2)
 		return true;
 	}
 }
+
+bool CollCircleCircle(float2 center1, int circleR1, float2 center2, int circleR2)
+{
+	float dist, distY, distX;
+	distX = abs(center1.x - center2.x);
+	distY = abs(center1.y - center2.y);
+	dist = sqrt(distX * distX + distY * distY);
+	if (dist < (circleR1 + circleR2)/2) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
+}

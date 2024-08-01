@@ -4,7 +4,7 @@
 #include "SoundManager.h"
 #include <cmath>
 
-
+#include "Spawner.h"
 Player::Player()
 {
 }
@@ -32,6 +32,7 @@ void Player::init()
 	m_maxHealth = 100;
 	m_health = m_maxHealth;
 	m_healthBar.init("health_bar.txt");
+	m_radius = max(m_drawable.rect.w, m_drawable.rect.h);
 }
 
 void Player::update()
@@ -48,6 +49,7 @@ void Player::update()
 	if (InputManager::m_secondstickPosition.y != 0 || InputManager::m_secondstickPosition.x != 0) {
 		shoot();
 	}
+	checkCollisions();
 	
 	m_healthBar.setBar(m_health, m_maxHealth);
 }
@@ -97,6 +99,8 @@ void Player::movePlayer()
 
 	m_drawable.rect.y = coor.y;
 	m_drawable.rect.x = coor.x;
+	m_centerCoords.x = coor.x + m_drawable.rect.w / 2;
+	m_centerCoords.y = coor.y + m_drawable.rect.h / 2;
 	
 	
 }
@@ -114,4 +118,22 @@ void Player::shoot()
 		m_currFrames = 0;
 	}
 	m_currFrames++;
+}
+
+void Player::checkCollisions()
+{
+	//cout << "oh no\n";
+	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
+		//cout << m_centerCoords.x << ' ' << m_centerCoords.y << ' ' << m_radius << ' ' << Spawner::m_enemies[i].getCeneterCoords().x << ' ' << Spawner::m_enemies[i].getCeneterCoords().y << ' ' << Spawner::m_enemies[i].getRadius() << '\n';
+		if (CollCircleCircle(m_centerCoords,m_radius,Spawner::m_enemies[i].getCeneterCoords(), Spawner::m_enemies[i].getRadius())) {
+			Spawner::m_enemies[i].reset();
+			
+		}
+		for (int j = 0; j < m_bullets.size(); j++) {
+			if (CollCircleCircle(m_bullets[j].getCeneterCoords(), m_bullets[j].getRadius(), Spawner::m_enemies[i].getCeneterCoords(), Spawner::m_enemies[i].getRadius())) {
+				Spawner::m_enemies[i].reset();
+				m_bullets.erase(m_bullets.begin()+j);
+			}
+		}
+	}
 }

@@ -1,6 +1,0 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  InputManager.cpp
-C:\Users\Diliana Vasileva\source\repos\geometryWars\include\InputManager.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\InputManager.cpp(46,36): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Diliana Vasileva\source\repos\geometryWars\src\InputManager.cpp(47,36): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
-  SDL-Template.vcxproj -> C:\Users\Diliana Vasileva\source\repos\geometryWars\run\SDL-Template.exe
