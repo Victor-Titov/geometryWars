@@ -8,6 +8,7 @@ public:
 	void update(float2 playerPos);
 	void reset();
 	bool isAlive();
+	
 private:
 	bool m_allive;
 	

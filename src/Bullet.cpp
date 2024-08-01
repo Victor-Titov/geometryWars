@@ -7,6 +7,7 @@ void Bullet::init(Drawable drawable, int velocity, int angle)
 	m_angle = angle;
 	coor.x = drawable.rect.x;
 	coor.y = drawable.rect.y;
+	m_radius = max(m_drawable.rect.w, m_drawable.rect.h);
 }
 
 void Bullet::update()
@@ -27,5 +28,7 @@ void Bullet::moveEntity()
 
 	m_drawable.rect.y = coor.y;
 	m_drawable.rect.x = coor.x;
+	m_centerCoords.x = coor.x + m_drawable.rect.w / 2;
+	m_centerCoords.y = coor.y + m_drawable.rect.h / 2;
 }
 

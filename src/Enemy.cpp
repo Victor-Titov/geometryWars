@@ -8,6 +8,7 @@ void Enemy::init(Drawable drawable, int velocity, double starting_angle)
 	m_angle = starting_angle;
 	coor = { (float)drawable.rect.x,(float) drawable.rect.y };
 	m_allive = true;
+	m_radius = max(m_drawable.rect.w, m_drawable.rect.h);
 }
 
 void Enemy::update(float2 playerPos)
@@ -25,6 +26,7 @@ bool Enemy::isAlive()
 {
 	return m_allive;
 }
+
 
 
 void Enemy::home()

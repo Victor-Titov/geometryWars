@@ -3,6 +3,7 @@
 
 class Spawner {
 public:
+	static vector<Enemy> m_enemies;
 	void init();
 	void update(float2 playerPos);
 	void draw();
@@ -12,6 +13,7 @@ private:
 	int m_enemyAmount;
 	int m_enemyVelocity;
 	int m_enemyAngle;
-	vector<Enemy> m_enemies;
-	void setEnemy(int index);
+	
+	void spawnEnemies();
+	void getEnemySpawn();
 };

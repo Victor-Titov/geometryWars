@@ -4,6 +4,7 @@
 #include <fstream>
 #include <SDL.h>
 #include<vector>
+#include<time.h>
 using namespace std;
 
 static string IMG_FOLDER = "img\\";
