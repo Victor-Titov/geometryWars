@@ -38,7 +38,7 @@ void Board::init()
 void Board::update()
 {
 	m_player.update();
-	m_spawner.update(m_player.getCoords());
+	m_spawner.update(m_player.getCeneterCoords());
 
 }
 

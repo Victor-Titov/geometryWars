@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BarManager.h" />
+    <ClInclude Include="..\include\Basheva.h" />
     <ClInclude Include="..\include\Board.h" />
     <ClInclude Include="..\include\Bullet.h" />
     <ClInclude Include="..\include\defines.h" />
@@ -39,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\BarManager.cpp" />
+    <ClCompile Include="..\src\Basheva.cpp" />
     <ClCompile Include="..\src\Board.cpp" />
     <ClCompile Include="..\src\Bullet.cpp" />
     <ClCompile Include="..\src\Enemy.cpp" />

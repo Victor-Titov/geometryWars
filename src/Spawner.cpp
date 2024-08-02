@@ -1,6 +1,7 @@
 #include "Spawner.h"
 #include "Presenter.h"
 vector<Enemy> Spawner::m_enemies = vector<Enemy>();
+vector<Basheva> Spawner::m_bashevas = vector<Basheva>();
 void Spawner::init()
 {
 	fstream stream;
@@ -13,15 +14,11 @@ void Spawner::init()
 	stream.close();
 	
 	m_enemy.texture = loadTexture(enemyTexture);
-	for (int i = 0; i < m_enemyAmount; i++) {
-		getEnemySpawn();
-		Enemy _Enemy;
-
-		_Enemy.init(m_enemy, m_enemyVelocity, 0);
-		//cout << "\n _Enemy.w: " << m_enemy.rect.x;
-		m_enemies.push_back(_Enemy);
-		
-	}
+	
+	m_basheva.rect = { 100,100,300,300 };
+	m_basheva.texture = loadTexture("right_view.bmp");
+	spawnEnemies();
+	
 }
 
 void Spawner::update(float2 playerPos)
@@ -36,8 +33,12 @@ void Spawner::update(float2 playerPos)
 
 		
 	}
+	for (int i = 0; i < m_bashevas.size(); i++) {
+		m_bashevas[i].update(playerPos);
+	}
 	spawnEnemies();
 		//SDL_Delay(9999999);
+	
 }
 
 void Spawner::draw()
@@ -45,28 +46,42 @@ void Spawner::draw()
 	for (int i = 0; i < m_enemies.size(); i++) {
 		m_enemies[i].draw();
 	}
+	for (int i = 0; i < m_bashevas.size(); i++) {
+		m_bashevas[i].draw();
+	}
+	
 	
 }
 
 void Spawner::destroy()
 {
 	SDL_DestroyTexture(m_enemy.texture);
+	SDL_DestroyTexture(m_basheva.texture);
 }
 
 
 
 void Spawner::spawnEnemies()
 {
-	while (m_enemies.size() < m_enemyAmount) {
-		int type = 1;
+	while (m_enemies.size() + m_bashevas.size() < m_enemyAmount) {
+
+		int type = rand()%2+1;
 		getEnemySpawn();
+		Enemy _Enemy;
 		switch (type) {
 		case 1:
-			Enemy _Enemy;
 			
 			_Enemy.init(m_enemy, m_enemyVelocity, 0);
 			m_enemies.push_back(_Enemy);
+			break;
+		case 2:
+			Basheva _Basheva;
+			_Basheva.init(m_basheva,1);
+			m_bashevas.push_back(_Basheva);
 		}
+		
+		
+
 	}
 }
 
@@ -95,6 +110,8 @@ void Spawner::getEnemySpawn()
 
 		break;
 	}
+	m_basheva.rect.x = m_enemy.rect.x;
+	m_basheva.rect.y = m_enemy.rect.y;
 	
 }
 

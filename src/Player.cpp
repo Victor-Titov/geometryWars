@@ -138,4 +138,12 @@ void Player::checkCollisions()
 			}
 		}
 	}
+
+	for (int i = 0; i < Spawner::m_bashevas.size(); i++) {
+		for (int j = 0; j < Spawner::m_bashevas[i].getBulletAmount(); j++) {
+			if (CollCircleCircle(Spawner::m_bashevas[i].getBulletCenter(j), Spawner::m_bashevas[i].getBulletRadius(), m_centerCoords, m_radius)) {
+				Spawner::m_bashevas[i].destroyBullet(j);
+			}
+		}
+	}
 }
