@@ -162,6 +162,13 @@ void Player::checkCollisions()
 			afterCalculation = abs(tmpCoords2.y - tmpCoords1.y) * abs(tmpCoords2.y - tmpCoords1.y) + abs(tmpCoords2.x - tmpCoords1.x) * abs(tmpCoords2.x - tmpCoords1.x);
 			distance = sqrt(afterCalculation);
 			force = findForce(1, 1, distance);
+			force *= 1000;
+			tmp = { force, force };
+			Spawner::m_bashevas[i].setCoords(tmp);
+			Spawner::m_bashevas[i].setAngle(tmpangle);
+			tmp = { -force, -force };
+			Spawner::m_bashevas[j].setCoords(tmp);
+			Spawner::m_bashevas[j].setAngle(tmpangle);
 
 		}
 	}

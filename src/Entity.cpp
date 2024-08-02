@@ -68,6 +68,17 @@ void Entity::moveEntity()
 	m_centerCoords.y = coor.y + m_drawable.rect.h / 2;
 }
 
+void Entity::setCoords(float2 newCoords)
+{
+	coor.x += newCoords.x;
+	coor.y += newCoords.y;
+}
+
+void Entity::setAngle(float newangle)
+{	
+	m_angle = newangle;
+}
+
 float Entity::findForce(int mass1, int mass2, float distance)
 {
 	return ((float)mass1*mass2) / (distance*distance);

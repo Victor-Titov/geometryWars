@@ -7,6 +7,8 @@ public:
 	virtual void update();
 	virtual void draw();
 	virtual void destroy();
+	virtual void setCoords(float2);
+	virtual void setAngle(float);
 	int get_health();
 	int get_maxHealth();
 	SDL_Rect getRect();
