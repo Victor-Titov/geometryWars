@@ -35,7 +35,7 @@ bld/
 
 SDL-Template/Debug
 SDL-Template/x64
-run/SDL_Template.exe
+run/SDL-Template.exe
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
