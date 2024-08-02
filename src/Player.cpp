@@ -129,7 +129,7 @@ void Player::checkCollisions()
 		//cout << m_centerCoords.x << ' ' << m_centerCoords.y << ' ' << m_radius << ' ' << Spawner::m_enemies[i].getCeneterCoords().x << ' ' << Spawner::m_enemies[i].getCeneterCoords().y << ' ' << Spawner::m_enemies[i].getRadius() << '\n';
 		if (CollCircleCircle(m_centerCoords,m_radius,Spawner::m_enemies[i].getCeneterCoords(), Spawner::m_enemies[i].getRadius())) {
 			Spawner::m_enemies[i].reset();
-			
+			m_health -= 0.05;
 		}
 		for (int j = 0; j < m_bullets.size(); j++) {
 			if (CollCircleCircle(m_bullets[j].getCeneterCoords(), m_bullets[j].getRadius(), Spawner::m_enemies[i].getCeneterCoords(), Spawner::m_enemies[i].getRadius())) {
@@ -143,7 +143,10 @@ void Player::checkCollisions()
 		for (int j = 0; j < Spawner::m_bashevas[i].getBulletAmount(); j++) {
 			if (CollCircleCircle(Spawner::m_bashevas[i].getBulletCenter(j), Spawner::m_bashevas[i].getBulletRadius(), m_centerCoords, m_radius)) {
 				Spawner::m_bashevas[i].destroyBullet(j);
+				m_health -= 0.05;
 			}
 		}
 	}
+
+	
 }

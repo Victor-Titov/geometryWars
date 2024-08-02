@@ -67,3 +67,14 @@ void Entity::moveEntity()
 	m_centerCoords.x = coor.x + m_drawable.rect.w / 2;
 	m_centerCoords.y = coor.y + m_drawable.rect.h / 2;
 }
+
+int Entity::findForce(int mass1, int mass2, int distance)
+{
+	return ((float)mass1*mass2) / (distance*distance);
+}
+
+void Entity::flockCollision(int mass1, int mass2, int distance)
+{
+	float force = findForce(mass1, mass2, distance);
+
+}
