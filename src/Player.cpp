@@ -124,6 +124,9 @@ void Player::shoot()
 
 void Player::checkCollisions()
 {
+	float2 tmpCoords1, tmpCoords2, tmp;
+	double tmpangle;
+	float force, distance, afterCalculation;
 	//cout << "oh no\n";
 	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
 		//cout << m_centerCoords.x << ' ' << m_centerCoords.y << ' ' << m_radius << ' ' << Spawner::m_enemies[i].getCeneterCoords().x << ' ' << Spawner::m_enemies[i].getCeneterCoords().y << ' ' << Spawner::m_enemies[i].getRadius() << '\n';
@@ -148,5 +151,19 @@ void Player::checkCollisions()
 		}
 	}
 
+	for (int i = 0; i < Spawner::m_bashevas.size(); i++) {
+		for (int j = i + 1; j < Spawner::m_bashevas.size() - 1; j++) {
+			tmpCoords1 = Spawner::m_bashevas[i].getCoords();
+			tmpCoords2 = Spawner::m_bashevas[j].getCoords();
+			tmp.x = tmpCoords2.x - tmpCoords1.x;
+			tmp.y = tmpCoords2.y - tmpCoords1.y;
+
+			tmpangle = atan2(tmp.y, tmp.x);
+			afterCalculation = abs(tmpCoords2.y - tmpCoords1.y) * abs(tmpCoords2.y - tmpCoords1.y) + abs(tmpCoords2.x - tmpCoords1.x) * abs(tmpCoords2.x - tmpCoords1.x);
+			distance = sqrt(afterCalculation);
+			force = findForce(1, 1, distance);
+
+		}
+	}
 	
 }

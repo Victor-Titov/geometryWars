@@ -20,8 +20,7 @@ protected:
 	int m_maxHealth;
 	double m_angle;
 	virtual void moveEntity();
-	int findForce(int mass1, int mass2, int distance);
-	virtual void flockCollision(int, int, int);
+	float findForce(int mass1, int mass2, float distance);
 	Drawable m_drawable;
 	float2 coor;
 	SDL_Texture* m_faces[4];
