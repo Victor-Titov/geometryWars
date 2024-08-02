@@ -66,7 +66,7 @@ void Spawner::spawnEnemies()
 	while (m_enemies.size() + m_bashevas.size() < m_enemyAmount) {
 
 		int type = rand()%2+1;
-		type = 2;
+		//type = 2;
 		getEnemySpawn();
 		Enemy _Enemy;
 		switch (type) {

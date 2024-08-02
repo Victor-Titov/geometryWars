@@ -77,6 +77,16 @@ void Basheva::destroyBullet(int index)
 	m_bullets.erase(m_bullets.begin() + index);
 }
 
+float2 Basheva::getCoords()
+{
+	return coor;
+}
+
+float2 Basheva::getCenterCoords()
+{
+	return m_centerCoords;
+}
+
 int Basheva::proximityCheck(float2 playerPos)
 {
 	float dist;

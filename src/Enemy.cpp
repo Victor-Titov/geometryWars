@@ -27,6 +27,16 @@ bool Enemy::isAlive()
 	return m_allive;
 }
 
+float2 Enemy::getCoords()
+{
+	return coor;
+}
+
+float2 Enemy::getCenterCoords()
+{
+	return m_centerCoords;
+}
+
 
 
 void Enemy::home()

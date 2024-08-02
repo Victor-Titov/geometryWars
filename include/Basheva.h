@@ -15,6 +15,8 @@ public:
 	float2 getBulletCenter(int index);
 
 	void destroyBullet(int index);
+	float2 getCoords();
+	float2 getCenterCoords();
 private:
 	int proximityCheck(float2 playerPos);
 	void shoot();
