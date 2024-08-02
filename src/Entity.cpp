@@ -59,8 +59,8 @@ void Entity::moveEntity()
 
 	//cout << y_offset << "" << x_offset << endl;
 
-	coor.y += y_offset * m_velocity;
-	coor.x += x_offset * m_velocity;
+	coor.y += y_offset * m_velocity / DELTA_TIME;
+	coor.x += x_offset * m_velocity / DELTA_TIME;
 
 	m_drawable.rect.y = coor.y;
 	m_drawable.rect.x = coor.x;

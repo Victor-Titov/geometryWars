@@ -19,6 +19,8 @@ void Basheva::init(Drawable drawable, int velocity)
 	BFFS = 15;
 	m_currFrames = 0;
 	m_trueVelocity = m_velocity;
+	m_allive = true;
+	m_type = 2;
 }
 
 
@@ -77,15 +79,6 @@ void Basheva::destroyBullet(int index)
 	m_bullets.erase(m_bullets.begin() + index);
 }
 
-float2 Basheva::getCoords()
-{
-	return coor;
-}
-
-float2 Basheva::getCenterCoords()
-{
-	return m_centerCoords;
-}
 
 int Basheva::proximityCheck(float2 playerPos)
 {

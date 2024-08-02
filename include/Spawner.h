@@ -3,8 +3,8 @@
 #include "Basheva.h"
 class Spawner {
 public:
-	static vector<Enemy> m_enemies;
-	static vector<Basheva> m_bashevas;
+	static vector<Enemy*> m_enemies;
+	
 	Basheva m_bashi;
 	void init();
 	void update(float2 playerPos);

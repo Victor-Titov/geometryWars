@@ -4,15 +4,18 @@
 class Enemy : public Entity
 {
 public:
-	void init(Drawable drawable, int velocity, double starting_angle);
-	void update(float2 playerPos);
+	virtual void init(Drawable drawable, int velocity, double starting_angle);
+	virtual void update(float2 playerPos);
 	void reset();
 	bool isAlive();
-	float2 getCoords();
-	float2 getCenterCoords();
-private:
+	int getType();
+	virtual int getBulletAmount();
+	virtual float2 getBulletCenter(int index);
+	virtual void destroyBullet(int index);
+	virtual int getBulletRadius();
+protected:
 	bool m_allive;
-	
-	void home();
+	int m_type;//1- shterev 2- bashi 3-frenski 4- kurshi
+
 	
 };
