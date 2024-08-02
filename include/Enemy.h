@@ -8,7 +8,8 @@ public:
 	void update(float2 playerPos);
 	void reset();
 	bool isAlive();
-	
+	float2 getCoords();
+	float2 getCenterCoords();
 private:
 	bool m_allive;
 	

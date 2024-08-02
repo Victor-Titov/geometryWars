@@ -54,7 +54,7 @@ float2 Entity::getCeneterCoords()
 void Entity::moveEntity()
 {
 	float rad = m_angle * (M_PI / 180);
-	float y_offset = sin(rad) * (-1);
+	float y_offset = sin(rad);
 	float x_offset = cos(rad);
 
 	//cout << y_offset << "" << x_offset << endl;
