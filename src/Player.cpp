@@ -19,7 +19,7 @@ void Player::init()
 	m_faces[1] = loadTexture("back_view.bmp");
 	m_faces[2] = loadTexture("left_view.bmp");
 	m_faces[3] = loadTexture("right_view.bmp");
-	m_drawable.texture = loadTexture("front_view.bmp");
+	m_drawable.texture = m_faces[2];
 	m_drawable.rect = { 800, 500, 300, 300};
 	coor = { 800, 500};
 	m_velocity = 2;
@@ -65,7 +65,8 @@ void Player::draw()
 		m_bullets[i].draw();
 	}
 	m_drawable.texture = m_faces[InputManager::m_faceNum];
-	drawObjectEx(m_drawable, m_angle);
+	drawObjectEx(m_drawable, 0);
+	//drawObjectEx(m_drawable, m_angle); - if u want spin
 	m_healthBar.draw();
 }
 
@@ -75,6 +76,7 @@ void Player::destroy()
 		SDL_DestroyTexture(m_faces[i]);
 	}
 	SDL_DestroyTexture(m_drawable.texture);
+	m_healthBar.destroy();
 }
 
 float2 Player::getCoords()

@@ -7,7 +7,7 @@ bool InputManager::m_mouseIsPressed = bool();
 int2 InputManager::m_mouseCoor = int2();
 int2 InputManager::m_joystickPosition = int2();
 int2 InputManager::m_secondstickPosition = int2();
-int InputManager::m_faceNum = int();
+textureFace InputManager::m_faceNum = textureFace();
 
 const Uint8* InputManager::m_keyboardState = nullptr;
 
@@ -61,10 +61,10 @@ void InputManager::handleInput()
 				{
 					m_joystickPosition.x = m_event.jaxis.value;
 					if (m_joystickPosition.x > 0) {
-						m_faceNum = 3;
+						m_faceNum = RIGHT_FACE;
 					}
 					else {
-						m_faceNum = 2;
+						m_faceNum = LEFT_FACE;
 					}
 
 				}
@@ -79,10 +79,10 @@ void InputManager::handleInput()
 				{
 					m_joystickPosition.y = m_event.jaxis.value;
 					if (m_joystickPosition.x > 0) {
-						m_faceNum = 0;
+						m_faceNum = FRONT_FACE;
 					}
 					else {
-						m_faceNum = 1;
+						m_faceNum = BACK_FACE;
 					}
 				}
 				else {
