@@ -19,7 +19,7 @@ void Player::init()
 	m_faces[1] = loadTexture("back_view.bmp");
 	m_faces[2] = loadTexture("left_view.bmp");
 	m_faces[3] = loadTexture("right_view.bmp");
-	m_drawable.texture = loadTexture("front_view.bmp");
+	m_drawable.texture = m_faces[2];
 	m_drawable.rect = { 800, 500, 300, 300};
 	coor = { 800, 500};
 	m_velocity = 2;
@@ -65,7 +65,8 @@ void Player::draw()
 		m_bullets[i].draw();
 	}
 	m_drawable.texture = m_faces[InputManager::m_faceNum];
-	drawObjectEx(m_drawable, m_angle);
+	drawObjectEx(m_drawable, 0);
+	//drawObjectEx(m_drawable, m_angle); - if u want spin
 	m_healthBar.draw();
 }
 
@@ -75,6 +76,7 @@ void Player::destroy()
 		SDL_DestroyTexture(m_faces[i]);
 	}
 	SDL_DestroyTexture(m_drawable.texture);
+	m_healthBar.destroy();
 }
 
 float2 Player::getCoords()
@@ -127,7 +129,7 @@ void Player::checkCollisions()
 		//cout << m_centerCoords.x << ' ' << m_centerCoords.y << ' ' << m_radius << ' ' << Spawner::m_enemies[i].getCeneterCoords().x << ' ' << Spawner::m_enemies[i].getCeneterCoords().y << ' ' << Spawner::m_enemies[i].getRadius() << '\n';
 		if (CollCircleCircle(m_centerCoords,m_radius,Spawner::m_enemies[i].getCeneterCoords(), Spawner::m_enemies[i].getRadius())) {
 			Spawner::m_enemies[i].reset();
-			
+			m_health -= 0.05;
 		}
 		for (int j = 0; j < m_bullets.size(); j++) {
 			if (CollCircleCircle(m_bullets[j].getCeneterCoords(), m_bullets[j].getRadius(), Spawner::m_enemies[i].getCeneterCoords(), Spawner::m_enemies[i].getRadius())) {
@@ -141,7 +143,10 @@ void Player::checkCollisions()
 		for (int j = 0; j < Spawner::m_bashevas[i].getBulletAmount(); j++) {
 			if (CollCircleCircle(Spawner::m_bashevas[i].getBulletCenter(j), Spawner::m_bashevas[i].getBulletRadius(), m_centerCoords, m_radius)) {
 				Spawner::m_bashevas[i].destroyBullet(j);
+				m_health -= 0.05;
 			}
 		}
 	}
+
+	
 }
