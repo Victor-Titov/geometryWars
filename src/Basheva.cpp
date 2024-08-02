@@ -25,7 +25,7 @@ void Basheva::init(Drawable drawable, int velocity)
 
 void Basheva::update(float2 playerPos)
 {
-	m_angle = atan2(coor.y - playerPos.y, playerPos.x - coor.x) * 180 / M_PI;
+	m_angle = atan2(playerPos.y - m_centerCoords.y, playerPos.x - m_centerCoords.x) * 180 / M_PI;
 	//TO FIX
 	// basheva draw,shooting angly with revesed y
 	m_shootingAngle = m_angle;
@@ -45,7 +45,7 @@ void Basheva::update(float2 playerPos)
 
 void Basheva::draw()
 {
-	drawObjectEx(m_drawable, -m_angle);
+	drawObjectEx(m_drawable, m_angle);
 	for (int i = 0; i < m_bullets.size(); i++) {
 		m_bullets[i].draw();
 	}
@@ -98,7 +98,7 @@ void Basheva::shoot()
 		
 		m_bulletDrawable.rect.x = m_drawable.rect.x + m_drawable.rect.w / 2;
 		m_bulletDrawable.rect.y = m_drawable.rect.y + m_drawable.rect.h / 2;
-		_Bullet.init(m_bulletDrawable, 20, -m_shootingAngle);
+		_Bullet.init(m_bulletDrawable, 20, m_shootingAngle);
 		m_bullets.push_back(_Bullet);
 
 		m_currFrames = 0;
