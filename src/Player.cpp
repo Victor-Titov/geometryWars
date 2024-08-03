@@ -108,7 +108,7 @@ void Player::movePlayer()
 
 void Player::shoot()
 {
-	if (m_currFrames >= FFS) {
+	if (m_currFrames >= FFS * DELTA_TIME) {
 		Bullet _Bullet;
 		m_pBulletsAngle = atan2(InputManager::m_secondstickPosition.y, InputManager::m_secondstickPosition.x) * 180/M_PI;
 		m_bulletDrawable.rect.x = m_drawable.rect.x + m_drawable.rect.w / 2;

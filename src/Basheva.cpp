@@ -96,7 +96,7 @@ int Basheva::proximityCheck(float2 playerPos)
 
 void Basheva::shoot()
 {
-	if (m_currFrames >= BFFS) {
+	if (m_currFrames >= BFFS * DELTA_TIME) {
 		Bullet _Bullet;
 		
 		m_bulletDrawable.rect.x = m_drawable.rect.x + m_drawable.rect.w / 2;
