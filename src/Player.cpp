@@ -49,8 +49,8 @@ void Player::update()
 	if (InputManager::m_secondstickPosition.y != 0 || InputManager::m_secondstickPosition.x != 0) {
 		shoot();
 	}
+
 	checkCollisions();
-	
 	m_healthBar.setBar(m_health, m_maxHealth);
 }
 
@@ -151,7 +151,7 @@ void Player::checkCollisions()
 		}
 	}
 
-	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
+	/*for (int i = 0; i < Spawner::m_enemies.size(); i++) {
 		for (int j = i + 1; j < Spawner::m_enemies.size() - 1; j++) {
 			tmpCoords1 = Spawner::m_enemies[i]->getCoords();
 			tmpCoords2 = Spawner::m_enemies[j]->getCoords();
@@ -162,7 +162,7 @@ void Player::checkCollisions()
 			afterCalculation = abs(tmpCoords2.y - tmpCoords1.y) * abs(tmpCoords2.y - tmpCoords1.y) + abs(tmpCoords2.x - tmpCoords1.x) * abs(tmpCoords2.x - tmpCoords1.x);
 			distance = sqrt(afterCalculation);
 			force = findForce(1, 1, distance);
-			force *= 1000;
+			force *= 4000;
 			tmp = { force, force };
 			Spawner::m_enemies[i]->setCoords(tmp);
 			Spawner::m_enemies[i]->setAngle(tmpangle);
@@ -171,7 +171,7 @@ void Player::checkCollisions()
 			Spawner::m_enemies[j]->setAngle(tmpangle);
 
 		}
-	}
+	}*/
 	
 	
 }

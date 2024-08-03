@@ -1,6 +1,7 @@
 #pragma once
 #include "Enemy.h"
 #include "Basheva.h"
+#include "Entity.h"
 #define SPAWN_COOLDOWN 100
 class Spawner {
 public:
@@ -19,5 +20,6 @@ private:
 	int m_enemyAngle;
 	int m_cooldown;
 	void spawnEnemies();
+	void flockCollision();
 	void getEnemySpawn();
 };

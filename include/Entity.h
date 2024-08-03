@@ -15,6 +15,8 @@ public:
 	int getRadius();
 	float2 getCoords();
 	float2 getCeneterCoords();
+	static float findForce(int mass1, int mass2, float distance);
+
 protected:
 	int m_velocity;
 	int m_radius;
@@ -22,7 +24,6 @@ protected:
 	int m_maxHealth;
 	double m_angle;
 	virtual void moveEntity();
-	float findForce(int mass1, int mass2, float distance);
 	Drawable m_drawable;
 	float2 coor;
 	SDL_Texture* m_faces[4];
