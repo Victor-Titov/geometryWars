@@ -12,7 +12,7 @@ void Spawner::init()
 	stream >> tmp >> m_enemyVelocity;
 	stream >> tmp >> m_enemyAmount;
 	stream.close();
-	
+	m_cooldown = 0;
 	m_enemy.texture = loadTexture(enemyTexture);
 	
 	m_basheva.rect = { 100,100,300,300 };
@@ -59,24 +59,27 @@ void Spawner::destroy()
 
 void Spawner::spawnEnemies()
 {
-	while (m_enemies.size()< m_enemyAmount) {
+	if (m_enemies.size()< m_enemyAmount) {
+		if (m_cooldown>=SPAWN_COOLDOWN*DELTA_TIME) {
+			int type = rand() % 2 + 1;
+			//type = 2;
+			getEnemySpawn();
+			Enemy* _Enemy = new Enemy();
+			switch (type) {
+			case 1:
 
-		int type = rand()%2+1;
-		type = 2;
-		getEnemySpawn();
-		Enemy* _Enemy=new Enemy();
-		switch (type) {
-		case 1:
-			
-			_Enemy->init(m_enemy, m_enemyVelocity, 0);
-			m_enemies.push_back(_Enemy);
-			break;
-		case 2:
-			Basheva * _Basheva = new Basheva;
-			_Basheva->init(m_basheva,1);
-			m_enemies.push_back(_Basheva);
-			break;
+				_Enemy->init(m_enemy, m_enemyVelocity, 0);
+				m_enemies.push_back(_Enemy);
+				break;
+			case 2:
+				Basheva * _Basheva = new Basheva;
+				_Basheva->init(m_basheva, 1);
+				m_enemies.push_back(_Basheva);
+				break;
+			}
+			m_cooldown = 0;
 		}
+		m_cooldown++;
 		
 		
 
