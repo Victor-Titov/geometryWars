@@ -1,7 +1,7 @@
 #include "Spawner.h"
 #include "Presenter.h"
-vector<Enemy> Spawner::m_enemies = vector<Enemy>();
-vector<Basheva> Spawner::m_bashevas = vector<Basheva>();
+vector<Enemy*> Spawner::m_enemies = vector<Enemy*>();
+
 void Spawner::init()
 {
 	fstream stream;
@@ -24,8 +24,8 @@ void Spawner::init()
 void Spawner::update(float2 playerPos)
 {
 	for (int i = 0; i < m_enemies.size(); i++) {
-		m_enemies[i].update(playerPos);
-		if (!m_enemies[i].isAlive()) {
+		m_enemies[i]->update(playerPos);
+		if (!m_enemies[i]->isAlive()) {
 			m_enemies.erase(m_enemies.begin() + i);
 			
 
@@ -33,9 +33,7 @@ void Spawner::update(float2 playerPos)
 
 		
 	}
-	for (int i = 0; i < m_bashevas.size(); i++) {
-		m_bashevas[i].update(playerPos);
-	}
+
 	spawnEnemies();
 		//SDL_Delay(9999999);
 	
@@ -44,11 +42,9 @@ void Spawner::update(float2 playerPos)
 void Spawner::draw()
 {
 	for (int i = 0; i < m_enemies.size(); i++) {
-		m_enemies[i].draw();
+		m_enemies[i]->draw();
 	}
-	for (int i = 0; i < m_bashevas.size(); i++) {
-		m_bashevas[i].draw();
-	}
+
 	
 	
 }
@@ -63,22 +59,23 @@ void Spawner::destroy()
 
 void Spawner::spawnEnemies()
 {
-	while (m_enemies.size() + m_bashevas.size() < m_enemyAmount) {
+	while (m_enemies.size()< m_enemyAmount) {
 
 		int type = rand()%2+1;
-		//type = 2;
+		type = 2;
 		getEnemySpawn();
-		Enemy _Enemy;
+		Enemy* _Enemy=new Enemy();
 		switch (type) {
 		case 1:
 			
-			_Enemy.init(m_enemy, m_enemyVelocity, 0);
+			_Enemy->init(m_enemy, m_enemyVelocity, 0);
 			m_enemies.push_back(_Enemy);
 			break;
 		case 2:
-			Basheva _Basheva;
-			_Basheva.init(m_basheva,1);
-			m_bashevas.push_back(_Basheva);
+			Basheva * _Basheva = new Basheva;
+			_Basheva->init(m_basheva,1);
+			m_enemies.push_back(_Basheva);
+			break;
 		}
 		
 		

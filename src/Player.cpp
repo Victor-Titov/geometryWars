@@ -96,8 +96,8 @@ void Player::movePlayer()
 	//float x_offset = cos(rad);
 
 
-	coor.y += (InputManager::m_joystickPosition.y / 32767.0) * velocity;
-	coor.x += (InputManager::m_joystickPosition.x / 32767.0) * velocity;
+	coor.y += (InputManager::m_joystickPosition.y / 32767.0) * velocity / DELTA_TIME;
+	coor.x += (InputManager::m_joystickPosition.x / 32767.0) * velocity / DELTA_TIME;
 
 	m_drawable.rect.y = coor.y;
 	m_drawable.rect.x = coor.x;
@@ -129,32 +129,32 @@ void Player::checkCollisions()
 	float force, distance, afterCalculation;
 	//cout << "oh no\n";
 	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
-		//cout << m_centerCoords.x << ' ' << m_centerCoords.y << ' ' << m_radius << ' ' << Spawner::m_enemies[i].getCeneterCoords().x << ' ' << Spawner::m_enemies[i].getCeneterCoords().y << ' ' << Spawner::m_enemies[i].getRadius() << '\n';
-		if (CollCircleCircle(m_centerCoords,m_radius,Spawner::m_enemies[i].getCeneterCoords(), Spawner::m_enemies[i].getRadius())) {
-			Spawner::m_enemies[i].reset();
+		//cout << m_centerCoords.x << ' ' << m_centerCoords.y << ' ' << m_radius << ' ' << Spawner::m_enemies[i]->getCeneterCoords().x << ' ' << Spawner::m_enemies[i]->getCeneterCoords().y << ' ' << Spawner::m_enemies[i]->getRadius() << '\n';
+		if (CollCircleCircle(m_centerCoords,m_radius,Spawner::m_enemies[i]->getCeneterCoords(), Spawner::m_enemies[i]->getRadius()) && Spawner::m_enemies[i]->getType() == 1) {
+			Spawner::m_enemies[i]->reset();
 			m_health -= 0.05;
 		}
 		for (int j = 0; j < m_bullets.size(); j++) {
-			if (CollCircleCircle(m_bullets[j].getCeneterCoords(), m_bullets[j].getRadius(), Spawner::m_enemies[i].getCeneterCoords(), Spawner::m_enemies[i].getRadius())) {
-				Spawner::m_enemies[i].reset();
+			if (CollCircleCircle(m_bullets[j].getCeneterCoords(), m_bullets[j].getRadius(), Spawner::m_enemies[i]->getCeneterCoords(), Spawner::m_enemies[i]->getRadius())) {
+				Spawner::m_enemies[i]->reset();
 				m_bullets.erase(m_bullets.begin()+j);
 			}
 		}
 	}
-
-	for (int i = 0; i < Spawner::m_bashevas.size(); i++) {
-		for (int j = 0; j < Spawner::m_bashevas[i].getBulletAmount(); j++) {
-			if (CollCircleCircle(Spawner::m_bashevas[i].getBulletCenter(j), Spawner::m_bashevas[i].getBulletRadius(), m_centerCoords, m_radius)) {
-				Spawner::m_bashevas[i].destroyBullet(j);
+	
+	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
+		for (int j = 0; j < Spawner::m_enemies[i]->getBulletAmount(); j++) {
+			if (Spawner::m_enemies[i]->getType()==2 || CollCircleCircle(Spawner::m_enemies[i]->getBulletCenter(j), Spawner::m_enemies[i]->getBulletRadius(), m_centerCoords, m_radius)) {
+				Spawner::m_enemies[i]->destroyBullet(j);
 				m_health -= 0.05;
 			}
 		}
 	}
 
-	for (int i = 0; i < Spawner::m_bashevas.size(); i++) {
-		for (int j = i + 1; j < Spawner::m_bashevas.size() - 1; j++) {
-			tmpCoords1 = Spawner::m_bashevas[i].getCoords();
-			tmpCoords2 = Spawner::m_bashevas[j].getCoords();
+	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
+		for (int j = i + 1; j < Spawner::m_enemies.size() - 1; j++) {
+			tmpCoords1 = Spawner::m_enemies[i]->getCoords();
+			tmpCoords2 = Spawner::m_enemies[j]->getCoords();
 			tmp.x = tmpCoords2.x - tmpCoords1.x;
 			tmp.y = tmpCoords2.y - tmpCoords1.y;
 
@@ -164,13 +164,14 @@ void Player::checkCollisions()
 			force = findForce(1, 1, distance);
 			force *= 4000;
 			tmp = { force, force };
-			Spawner::m_bashevas[i].setCoords(tmp);
-			Spawner::m_bashevas[i].setAngle(tmpangle);
+			Spawner::m_enemies[i]->setCoords(tmp);
+			Spawner::m_enemies[i]->setAngle(tmpangle);
 			tmp = { -force, -force };
-			Spawner::m_bashevas[j].setCoords(tmp);
-			Spawner::m_bashevas[j].setAngle(tmpangle);
+			Spawner::m_enemies[j]->setCoords(tmp);
+			Spawner::m_enemies[j]->setAngle(tmpangle);
 
 		}
 	}
+	
 	
 }

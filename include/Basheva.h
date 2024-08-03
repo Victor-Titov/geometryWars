@@ -2,7 +2,8 @@
 
 #include "Entity.h"
 #include "Bullet.h"
-class Basheva : public Entity {
+#include "Enemy.h"
+class Basheva : public  Enemy{
 public:
 	Basheva();
 	~Basheva();
@@ -15,8 +16,7 @@ public:
 	float2 getBulletCenter(int index);
 
 	void destroyBullet(int index);
-	float2 getCoords();
-	float2 getCenterCoords();
+
 private:
 	int proximityCheck(float2 playerPos);
 	void shoot();

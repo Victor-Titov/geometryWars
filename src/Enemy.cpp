@@ -9,6 +9,7 @@ void Enemy::init(Drawable drawable, int velocity, double starting_angle)
 	coor = { (float)drawable.rect.x,(float) drawable.rect.y };
 	m_allive = true;
 	m_radius = max(m_drawable.rect.w, m_drawable.rect.h);
+	m_type = 1;
 }
 
 void Enemy::update(float2 playerPos)
@@ -27,18 +28,29 @@ bool Enemy::isAlive()
 	return m_allive;
 }
 
-float2 Enemy::getCoords()
+int Enemy::getType()
 {
-	return coor;
+	return m_type;
 }
 
-float2 Enemy::getCenterCoords()
+int Enemy::getBulletAmount()
 {
-	return m_centerCoords;
+	return 0;
 }
 
-
-
-void Enemy::home()
+float2 Enemy::getBulletCenter(int index)
 {
+	float2 a = { 0,0 };
+	return a;
 }
+
+void Enemy::destroyBullet(int index)
+{
+
+}
+
+int Enemy::getBulletRadius()
+{
+	return 0;
+}
+
