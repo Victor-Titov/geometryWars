@@ -95,7 +95,6 @@ void Player::movePlayer()
 	//float y_offset = sin(rad) * (-1);
 	//float x_offset = cos(rad);
 
-
 	coor.y += (InputManager::m_joystickPosition.y / 32767.0) * velocity / DELTA_TIME;
 	coor.x += (InputManager::m_joystickPosition.x / 32767.0) * velocity / DELTA_TIME;
 
@@ -128,6 +127,7 @@ void Player::checkCollisions()
 	double tmpangle;
 	float force, distance, afterCalculation;
 	//cout << "oh no\n";
+
 	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
 		//cout << m_centerCoords.x << ' ' << m_centerCoords.y << ' ' << m_radius << ' ' << Spawner::m_enemies[i]->getCeneterCoords().x << ' ' << Spawner::m_enemies[i]->getCeneterCoords().y << ' ' << Spawner::m_enemies[i]->getRadius() << '\n';
 		if (CollCircleCircle(m_centerCoords,m_radius,Spawner::m_enemies[i]->getCeneterCoords(), Spawner::m_enemies[i]->getRadius()) && Spawner::m_enemies[i]->getType() == 1) {
@@ -153,16 +153,15 @@ void Player::checkCollisions()
 
 	/*for (int i = 0; i < Spawner::m_enemies.size(); i++) {
 		for (int j = i + 1; j < Spawner::m_enemies.size() - 1; j++) {
-			tmpCoords1 = Spawner::m_enemies[i]->getCoords();
+			tmpCoords1 = Spawner::Spawner::m_enemies[i]->getCoords();
 			tmpCoords2 = Spawner::m_enemies[j]->getCoords();
 			tmp.x = tmpCoords2.x - tmpCoords1.x;
 			tmp.y = tmpCoords2.y - tmpCoords1.y;
-
 			tmpangle = atan2(tmp.y, tmp.x);
 			afterCalculation = abs(tmpCoords2.y - tmpCoords1.y) * abs(tmpCoords2.y - tmpCoords1.y) + abs(tmpCoords2.x - tmpCoords1.x) * abs(tmpCoords2.x - tmpCoords1.x);
 			distance = sqrt(afterCalculation);
 			force = findForce(1, 1, distance);
-			force *= 4000;
+			force *= 1000;
 			tmp = { force, force };
 			Spawner::m_enemies[i]->setCoords(tmp);
 			Spawner::m_enemies[i]->setAngle(tmpangle);
@@ -171,7 +170,6 @@ void Player::checkCollisions()
 			Spawner::m_enemies[j]->setAngle(tmpangle);
 
 		}
-	}*/
-	
-	
+	}
+	*/
 }
