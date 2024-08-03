@@ -1,6 +1,7 @@
 #pragma once
 #include "Enemy.h"
 #include "Basheva.h"
+#include "Entity.h"
 class Spawner {
 public:
 	static vector<Enemy*> m_enemies;
@@ -18,5 +19,6 @@ private:
 	int m_enemyAngle;
 	
 	void spawnEnemies();
+	void flockCollision();
 	void getEnemySpawn();
 };

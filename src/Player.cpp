@@ -49,8 +49,8 @@ void Player::update()
 	if (InputManager::m_secondstickPosition.y != 0 || InputManager::m_secondstickPosition.x != 0) {
 		shoot();
 	}
+
 	checkCollisions();
-	
 	m_healthBar.setBar(m_health, m_maxHealth);
 }
 
@@ -151,7 +151,7 @@ void Player::checkCollisions()
 		}
 	}
 
-	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
+	/*for (int i = 0; i < Spawner::m_enemies.size(); i++) {
 		for (int j = i + 1; j < Spawner::m_enemies.size() - 1; j++) {
 			tmpCoords1 = Spawner::m_enemies[i]->getCoords();
 			tmpCoords2 = Spawner::m_enemies[j]->getCoords();
@@ -171,7 +171,7 @@ void Player::checkCollisions()
 			Spawner::m_enemies[j]->setAngle(tmpangle);
 
 		}
-	}
+	}*/
 	
 	
 }
