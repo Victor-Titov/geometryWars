@@ -84,7 +84,7 @@ void Spawner::spawnEnemies()
 void Spawner::flockCollision()
 {
 	float2 object1Coor, object2Coor, tmp;
-	float angleOfObject, force, distance;
+	float force, distance;
 	int multiplier = 1000;
 	
 
@@ -94,16 +94,13 @@ void Spawner::flockCollision()
 			object2Coor = Spawner::m_enemies[j]->getCoords();
 			tmp.x = object2Coor.x - object1Coor.x;
 			tmp.y = object2Coor.y - object1Coor.y;
-			angleOfObject = atan2(tmp.y, tmp.x);
 			distance = sqrt(abs(object2Coor.y - object1Coor.y) * abs(object2Coor.y - object1Coor.y) + abs(object2Coor.x - object1Coor.x) * abs(object2Coor.x - object1Coor.x));
 			force = Entity::findForce(1, 1, distance);
 			force *= multiplier;
 			tmp = { force, force };
 			Spawner::m_enemies[i]->setCoords(tmp);
-			Spawner::m_enemies[i]->setAngle(angleOfObject);
 			tmp = { -force, -force };
 			Spawner::m_enemies[j]->setCoords(tmp);
-			Spawner::m_enemies[j]->setAngle(angleOfObject);
 
 		}
 	}
