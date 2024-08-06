@@ -6,7 +6,7 @@
 #include "Entity.h"
 #include "BarManager.h"
 
-#define FFS 5 // frames needed to shoot once
+#define FFS 35 // frames needed to shoot once
 class Player : public Entity
 {
 public:

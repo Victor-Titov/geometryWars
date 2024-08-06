@@ -16,7 +16,7 @@ void Basheva::init(Drawable drawable, int velocity)
 	m_bulletDrawable.rect = { 0,0,50,50 };
 	m_bulletDrawable.texture = loadTexture("bullet.bmp");
 	m_radius = max(m_drawable.rect.w, m_drawable.rect.h);
-	BFFS = 15;
+	BFFS = 100;
 	m_currFrames = 0;
 	m_trueVelocity = m_velocity;
 	m_allive = true;
