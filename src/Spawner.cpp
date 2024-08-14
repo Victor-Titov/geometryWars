@@ -17,6 +17,8 @@ void Spawner::init()
 	m_enemy.texture = loadTexture(enemyTexture);
 	
 	m_basheva.rect = { 100,100,300,300 };
+	m_dani.rect = { 100,100,300,300 };
+	m_dani.texture = loadTexture("Yes.bmp");
 	m_basheva.texture = loadTexture("right_view.bmp");
 	spawnEnemies();
 	
@@ -59,10 +61,12 @@ void Spawner::spawnEnemies()
 {
 	if (m_enemies.size()< m_enemyAmount) {
 		if (m_cooldown>=SPAWN_COOLDOWN*DELTA_TIME) {
-			int type = rand() % 2 + 1;
+			int type = rand() % 3 + 1;
 			//type = 2;
 			getEnemySpawn();
 			Enemy* _Enemy = new Enemy();
+			Basheva * _Basheva = new Basheva();
+			Dani * _Dani = new Dani();
 			switch (type) {
 			case 1:
 
@@ -70,9 +74,12 @@ void Spawner::spawnEnemies()
 				m_enemies.push_back(_Enemy);
 				break;
 			case 2:
-				Basheva * _Basheva = new Basheva;
 				_Basheva->init(m_basheva, 1);
 				m_enemies.push_back(_Basheva);
+				break;
+			case 3:
+				_Dani->init(m_dani, 1);
+				m_enemies.push_back(_Dani);
 				break;
 			}
 			m_cooldown = 0;

@@ -4,7 +4,7 @@
 #include "Player.h"
 #include "Spawner.h"
 #include "InputManager.h"
-
+#include"Dani.h"
 class Board
 {
 public:
@@ -21,4 +21,6 @@ private:
 	Player m_player;
 	Spawner m_spawner;
 	float2 m_playerCoords;
+	
+
 };

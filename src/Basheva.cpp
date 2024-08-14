@@ -28,8 +28,7 @@ void Basheva::init(Drawable drawable, int velocity)
 void Basheva::update(float2 playerPos)
 {
 	m_angle = atan2(playerPos.y - m_centerCoords.y, playerPos.x - m_centerCoords.x) * 180 / M_PI;
-	//TO FIX
-	// basheva draw,shooting angly with revesed y
+
 	m_shootingAngle = m_angle;
 	m_velocity = m_trueVelocity * proximityCheck(playerPos);
 	SDL_Rect ScreenRect = { 0,0,1920,1080 };

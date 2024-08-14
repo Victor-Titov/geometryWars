@@ -7,25 +7,25 @@ class Basheva : public  Enemy{
 public:
 	Basheva();
 	~Basheva();
-	void init(Drawable drawable, int velocity);
-	void update(float2 playerPos);
-	void draw();
-	void destroy();
-	int getBulletAmount();
-	int getBulletRadius();
-	float2 getBulletCenter(int index);
+	virtual void init(Drawable drawable, int velocity);
+	virtual void update(float2 playerPos);
+	virtual void draw();
+	virtual void destroy();
+	virtual int getBulletAmount();
+	virtual int getBulletRadius();
+	virtual float2 getBulletCenter(int index);
 
-	void destroyBullet(int index);
+	virtual void destroyBullet(int index);
 
-private:
+protected:
+	virtual void shoot();
 	int proximityCheck(float2 playerPos);
-	void shoot();
 	float playerDistance(float2 playerPos);
 	int m_shootingAngle;
-	vector<Bullet> m_bullets;
 	int m_bulletRadius;
 	int m_trueVelocity;
 	int BFFS;
 	Drawable m_bulletDrawable;
 	int m_currFrames;
+	vector<Bullet> m_bullets;
 };

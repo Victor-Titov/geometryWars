@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "Basheva.h"
 #include "Entity.h"
+#include "Dani.h"
 #define SPAWN_COOLDOWN 100
 class Spawner {
 public:
@@ -15,6 +16,7 @@ public:
 private:
 	Drawable m_enemy;
 	Drawable m_basheva;
+	Drawable m_dani;
 	int m_enemyAmount;
 	int m_enemyVelocity;
 	int m_enemyAngle;

@@ -33,6 +33,9 @@ void Board::init()
 	m_player.init();
 	m_spawner.init();
 	
+	
+	
+	
 }
 
 void Board::update()
@@ -48,6 +51,7 @@ void Board::draw()
 	drawObject(m_background);
 	m_player.draw();
 	m_spawner.draw();
+
 }
 
 void Board::destroy()
@@ -55,4 +59,5 @@ void Board::destroy()
 	SDL_DestroyTexture(m_background);
 	m_player.destroy();
 	m_spawner.destroy();
+	
 }

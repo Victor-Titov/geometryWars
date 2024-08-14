@@ -4,7 +4,7 @@ class Bullet : public Entity {
 public:
 	void init(Drawable drawable, int velocity, int angle);
 	void update();
-private:
+protected:
 	void moveEntity();
 	
 };

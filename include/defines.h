@@ -5,7 +5,7 @@
 #include <SDL.h>
 #include<vector>
 #include<time.h>
-#define DELTA_TIME 5
+#define DELTA_TIME 7
 using namespace std;
 
 static string IMG_FOLDER = "img\\";
