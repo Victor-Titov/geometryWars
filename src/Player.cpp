@@ -145,7 +145,7 @@ void Player::checkCollisions()
 	
 	for (int i = 0; i < Spawner::m_enemies.size(); i++) {
 		for (int j = 0; j < Spawner::m_enemies[i]->getBulletAmount(); j++) {
-			if ((Spawner::m_enemies[i]->getType()==2 || Spawner::m_enemies[i]->getType()==3 ) && CollCircleCircle(Spawner::m_enemies[i]->getBulletCenter(j), Spawner::m_enemies[i]->getBulletRadius(), m_centerCoords, m_radius)) {
+			if ((Spawner::m_enemies[i]->getType()>=2 && Spawner::m_enemies[i]->getType()<=4) && CollCircleCircle(Spawner::m_enemies[i]->getBulletCenter(j), Spawner::m_enemies[i]->getBulletRadius(), m_centerCoords, m_radius)) {
 				Spawner::m_enemies[i]->destroyBullet(j);
 				m_health -= 0.05;
 			}

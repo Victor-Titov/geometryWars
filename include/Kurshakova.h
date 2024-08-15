@@ -1,8 +1,10 @@
-#pragma once
-#include"Basheva.h"
-#include"Football.h"
-class Dani : public Basheva {
+#pragma once 
+#include "Basheva.h"
+#include"Soundwave.h"
+class Kurshakova : public Basheva {
 public:
+	Kurshakova();
+	~Kurshakova();
 	void init(Drawable drawable, int velocity);
 	void update(float2 playerPos);
 	void draw();
@@ -12,11 +14,10 @@ public:
 	float2 getBulletCenter(int index);
 
 	void destroyBullet(int index);
-	int m_maxFootballs;
-private:
+
+protected:
 	void shoot();
-	vector<Football> m_footballs;
 	int proximityCheck(float2 playerPos);
+	vector<Soundwave>m_waves;
 	
 };
-

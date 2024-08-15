@@ -17,9 +17,11 @@ void Spawner::init()
 	m_enemy.texture = loadTexture(enemyTexture);
 	
 	m_basheva.rect = { 100,100,300,300 };
-	m_dani.rect = { 100,100,300,300 };
+	m_dani.rect = { 10,10,100,100 };
 	m_dani.texture = loadTexture("Yes.bmp");
 	m_basheva.texture = loadTexture("right_view.bmp");
+	m_Kurshakova = m_dani;
+	m_Kurshakova.texture = loadTexture("n.bmp");
 	spawnEnemies();
 	
 }
@@ -61,12 +63,13 @@ void Spawner::spawnEnemies()
 {
 	if (m_enemies.size()< m_enemyAmount) {
 		if (m_cooldown>=SPAWN_COOLDOWN*DELTA_TIME) {
-			int type = rand() % 3 + 1;
+			int type = rand() % 4 + 1;
 			//type = 2;
 			getEnemySpawn();
 			Enemy* _Enemy = new Enemy();
-			Basheva * _Basheva = new Basheva();
-			Dani * _Dani = new Dani();
+			Basheva* _Basheva = new Basheva();
+			Dani* _Dani = new Dani();
+			Kurshakova* _Kurshakova = new Kurshakova();
 			switch (type) {
 			case 1:
 
@@ -81,6 +84,9 @@ void Spawner::spawnEnemies()
 				_Dani->init(m_dani, 1);
 				m_enemies.push_back(_Dani);
 				break;
+			case 4:
+				_Kurshakova->init(m_Kurshakova, 1);
+				m_enemies.push_back(_Kurshakova);
 			}
 			m_cooldown = 0;
 		}
@@ -143,6 +149,10 @@ void Spawner::getEnemySpawn()
 	}
 	m_basheva.rect.x = m_enemy.rect.x;
 	m_basheva.rect.y = m_enemy.rect.y;
+	m_dani.rect.x = m_enemy.rect.x;
+	m_dani.rect.y = m_enemy.rect.y;
+	m_Kurshakova.rect.x = m_enemy.rect.x;
+	m_Kurshakova.rect.y = m_enemy.rect.y;
 	
 }
 

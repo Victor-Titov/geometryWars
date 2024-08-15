@@ -4,7 +4,7 @@
 #include "Player.h"
 #include "Spawner.h"
 #include "InputManager.h"
-#include"Dani.h"
+#include"Kurshakova.h"
 class Board
 {
 public:

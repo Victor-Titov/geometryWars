@@ -97,11 +97,3 @@ int Dani::proximityCheck(float2 playerPos)
 	return 1;
 }
 
-float Dani::playerDistance(float2 playerPos)
-{
-	float distX, distY, dist;
-	distX = abs(m_centerCoords.x - playerPos.x);
-	distY = abs(m_centerCoords.y - playerPos.y);
-	dist = sqrt(distX * distX + distY * distY);
-	return dist;
-}

@@ -19,7 +19,7 @@ public:
 
 protected:
 	virtual void shoot();
-	int proximityCheck(float2 playerPos);
+	virtual int proximityCheck(float2 playerPos);
 	float playerDistance(float2 playerPos);
 	int m_shootingAngle;
 	int m_bulletRadius;
@@ -27,5 +27,6 @@ protected:
 	int BFFS;
 	Drawable m_bulletDrawable;
 	int m_currFrames;
+private:
 	vector<Bullet> m_bullets;
 };

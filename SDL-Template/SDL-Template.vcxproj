@@ -31,9 +31,11 @@
     <ClInclude Include="..\include\Football.h" />
     <ClInclude Include="..\include\Game.h" />
     <ClInclude Include="..\include\InputManager.h" />
+    <ClInclude Include="..\include\Kurshakova.h" />
     <ClInclude Include="..\include\Player.h" />
     <ClInclude Include="..\include\Presenter.h" />
     <ClInclude Include="..\include\SoundManager.h" />
+    <ClInclude Include="..\include\Soundwave.h" />
     <ClInclude Include="..\include\Spawner.h" />
     <ClInclude Include="..\include\State.h" />
     <ClInclude Include="..\include\StateManager.h" />
@@ -52,10 +54,12 @@
     <ClCompile Include="..\src\Football.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\InputManager.cpp" />
+    <ClCompile Include="..\src\Kurshakova.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Presenter.cpp" />
     <ClCompile Include="..\src\SoundManager.cpp" />
+    <ClCompile Include="..\src\Soundwave.cpp" />
     <ClCompile Include="..\src\Spawner.cpp" />
     <ClCompile Include="..\src\State.cpp" />
     <ClCompile Include="..\src\StateManager.cpp" />
